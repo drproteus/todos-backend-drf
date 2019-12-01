@@ -13,7 +13,8 @@ class TodoListView(APIView):
     renderer_classes = [JSONRenderer]
 
     def get(self, request, format=None):
-        serializer = TodoSerializer(Todo.objects.all(), many=True)
+        todos = Todo.objects.all().order_by("-order", "updated_at")
+        serializer = TodoSerializer(todos, many=True)
         return Response(serializer.data)
 
     def post(self, request):
