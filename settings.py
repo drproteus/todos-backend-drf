@@ -1,3 +1,4 @@
+import dj_database_url
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -66,16 +67,8 @@ WSGI_APPLICATION = "wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "todos_backend",
-        "USER": os.getenv("DB_USER", "jake"),
-        "PASSWORD": os.getenv("DB_PASSWORD", "captain kirk"),
-        "HOST": "127.0.0.1",
-        "PORT": "",
-    }
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
