@@ -4,7 +4,8 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models import Todo
+from todos.models import Todo
+
 from api.serializers import TodoSerializer
 
 
@@ -26,6 +27,7 @@ class TodoListView(APIView):
         todos = Todo.objects.all()
         todos.delete()
         return Response(TodoSerializer(todos, many=True).data)
+
 
 class TodoView(APIView):
     def dispatch(self, request, pk=None):

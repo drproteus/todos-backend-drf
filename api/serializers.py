@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from api.models import Todo
+
+from todos.models import Todo
+
 
 class TodoSerializer(serializers.Serializer):
     id = serializers.UUIDField(read_only=True, required=False)
