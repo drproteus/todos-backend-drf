@@ -43,7 +43,7 @@ class TodoView(APIView):
     def get(self, request):
         return Response(TodoSerializer(instance=self.todo).data)
 
-    def post(self, request):
+    def patch(self, request):
         data = json.loads(request.body)
         todo = TodoSerializer(instance=self.todo).update(self.todo, data)
         return Response(TodoSerializer(instance=todo).data)
