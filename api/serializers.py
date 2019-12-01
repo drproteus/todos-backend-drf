@@ -21,5 +21,6 @@ class TodoSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.title = validated_data.get("title", instance.title)
         instance.order = validated_data.get("order", instance.order)
+        instance.completed = validated_data.get("completed", instance.completed)
         instance.save()
         return instance
