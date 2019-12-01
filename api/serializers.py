@@ -4,7 +4,7 @@ from api.models import Todo
 class TodoSerializer(serializers.Serializer):
     id = serializers.UUIDField(read_only=True, required=False)
     title = serializers.CharField(max_length=256)
-    order = serializers.IntegerField()
+    order = serializers.IntegerField(required=False)
     created_at = serializers.DateTimeField(read_only=True, required=False)
     updated_at = serializers.DateTimeField(read_only=True, required=False)
 

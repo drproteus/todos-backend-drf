@@ -13,7 +13,7 @@ SECRET_KEY = '+k7q3d&6uj6x5!0676ny)xx=+1_^(*_3xqb&^(rbc95lo6sl)x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '1465945e.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'ad48b54a.ngrok.io', "192.168.1.24"]
 
 
 # Application definition
@@ -68,8 +68,12 @@ WSGI_APPLICATION = 'todosbackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'todos_backend',
+        'USER': os.getenv("DB_USER", 'jake'),
+        'PASSWORD': os.getenv("DB_PASSWORD", 'captain kirk'),
+        'HOST': '127.0.0.1',
+        'PORT': '',
     }
 }
 
@@ -113,4 +117,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
-APPEND_SLASH = False
