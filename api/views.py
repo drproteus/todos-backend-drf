@@ -18,7 +18,7 @@ class TodoListView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = TodoSerializer(data=request.POST)
+        serializer = TodoSerializer(data=request.body)
         if serializer.is_valid():
             todo = serializer.save()
             return Response(TodoSerializer(instance=todo).data)
@@ -42,7 +42,7 @@ class TodoView(APIView):
         return Response(TodoSerializer(instance=self.todo).data)
 
     def post(self, request):
-        todo = TodoSerializer(instance=self.todo).update(self.todo, request.POST)
+        todo = TodoSerializer(instance=self.todo).update(self.todo, request.body)
         return Response(TodoSerializer(instance=todo).data)
 
     def delete(self, request):
