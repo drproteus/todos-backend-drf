@@ -7,6 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+BASE_URL = "https://jakeg-django-todo.herokuapp.com"
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "+k7q3d&6uj6x5!0676ny)xx=+1_^(*_3xqb&^(rbc95lo6sl)x"
