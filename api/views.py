@@ -1,4 +1,5 @@
 from django.http import Http404
+import json
 
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -18,7 +19,8 @@ class TodoListView(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = TodoSerializer(data=request.body)
+        data = json.loads(request.body)
+        serializer = TodoSerializer(data=data)
         if serializer.is_valid():
             todo = serializer.save()
             return Response(TodoSerializer(instance=todo).data)
@@ -42,7 +44,8 @@ class TodoView(APIView):
         return Response(TodoSerializer(instance=self.todo).data)
 
     def post(self, request):
-        todo = TodoSerializer(instance=self.todo).update(self.todo, request.body)
+        data = json.loads(request.body)
+        todo = TodoSerializer(instance=self.todo).update(self.todo, data)
         return Response(TodoSerializer(instance=todo).data)
 
     def delete(self, request):
