@@ -15,10 +15,12 @@ SECRET_KEY = "+k7q3d&6uj6x5!0676ny)xx=+1_^(*_3xqb&^(rbc95lo6sl)x"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1",
-                 "192.168.1.24",
-                 "jakeg-django-todo.herokuapp.com",
-                 "todos-backend.jakeg.dev"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "192.168.1.24",
+    "jakeg-django-todo.herokuapp.com",
+    "todos-backend.jakeg.dev",
+]
 
 
 # Application definition
@@ -72,7 +74,7 @@ WSGI_APPLICATION = "wsgi.application"
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
